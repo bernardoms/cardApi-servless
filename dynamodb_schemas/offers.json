@@ -1,0 +1,31 @@
+{
+  "TableName" : "Offers",
+  "KeySchema": [
+    {
+      "AttributeName": "id",
+      "KeyType": "HASH"
+    }
+  ],
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "id",
+      "AttributeType": "S"
+    }
+  ],
+  "GlobalSecondaryIndexes": [
+    {
+      "IndexName": "offer_brand",
+      "KeySchema": [
+        {
+          "AttributeName": "brandId",
+          "KeyType": "HASH",
+        }
+      ],
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 1,
+    "WriteCapacityUnits": 1
+  }
+}

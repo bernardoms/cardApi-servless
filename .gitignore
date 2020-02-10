@@ -1,0 +1,19 @@
+# file: .gitignore
+# package directories
+node_modules/
+# Serverless directories
+.serverless/
+.dynamodb
+dynamodb_local/
+.idea
+# files
+.DS_Store
+.env
+# tests
+coverage/
+package-lock.json
+# file: .env
+AWS_ENDPOINT=’http://localhost:8000'
+AWS_REGION=’localhost’
+AWS_ACCESS_KEY_ID=’fake-access-key’
+AWS_SECRET_ACCESS_KEY=’fake-secret-key’

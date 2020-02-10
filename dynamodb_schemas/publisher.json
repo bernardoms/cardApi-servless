@@ -1,0 +1,19 @@
+{
+    "TableName" : "Publisher",
+    "KeySchema": [
+        {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+        }
+    ],
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "id",
+            "AttributeType": "S"
+        }
+    ],
+    "ProvisionedThroughput": {       // Only specified if using provisioned mode
+        "ReadCapacityUnits": 1,
+        "WriteCapacityUnits": 1
+    }
+}

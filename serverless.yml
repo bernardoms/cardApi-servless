@@ -1,0 +1,14 @@
+# file: serverless.yml
+
+service: card-api
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  region: localhost
+
+functions:
+  - '${file(src/handlers/offers/offers-serverless.yml)}'
+
+plugins:
+  - serverless-offline
