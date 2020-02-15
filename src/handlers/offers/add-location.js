@@ -21,9 +21,9 @@ const withProcessEnv = ({AWS_ENDPOINT, AWS_REGION, AWS_ACCESS_KEY_ID, AWS_SECRET
 const docClient = withProcessEnv(process.env)();
 const offerRepository = new OfferRepository(docClient);
 const locationRepository = new LocationRepository(docClient);
-const response = {};
 
 exports.handler = async (event) => {
+    const response = {};
 
     const {offerId, locationId} = event.pathParameters;
     const offer = await offerRepository.get(offerId);

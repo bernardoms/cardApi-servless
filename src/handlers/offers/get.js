@@ -18,13 +18,13 @@ const docClient = withProcessEnv(process.env)();
 
 const repository = new OfferRepository(docClient);
 
-const response = {
-};
-
 exports.handler = async (event) => {
 
+    const response = {
+    };
+
     const { offerId } = event.pathParameters;
-    const offer = await repository.getByBrand(offerId);
+    const offer = await repository.get(offerId);
 
     if (!offer){
         response.statusCode = 404;

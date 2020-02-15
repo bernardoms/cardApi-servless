@@ -17,10 +17,11 @@ const withProcessEnv = ({ AWS_ENDPOINT, AWS_REGION, AWS_ACCESS_KEY_ID, AWS_SECRE
 
 const docClient = withProcessEnv(process.env)();
 const repository = new OfferRepository(docClient);
-const response = {
-};
 
 exports.handler = async () => {
+    const response = {
+    };
+
     const offers = await repository.list();
     response.body = JSON.stringify(offers);
     response.statusCode = 200;
