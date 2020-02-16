@@ -50,8 +50,10 @@ class OfferRepository {
 
         const params = OfferRepository._createParamObject(param);
         const response = await this._documentClient.query(params).promise();
-
-        return response.Items;
+        if(response.Items[0]) {
+            return response.Items[0];
+        }
+        return null;
     }
 
     /**

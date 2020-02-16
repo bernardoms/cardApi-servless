@@ -1,5 +1,4 @@
 # handler paths are relative to the root serverless.yml file that this is being merged into
-# they are also compiled by babel into a 'dist' folder at the root
 list:
   handler: src/handlers/offers/list.handler
   events:
@@ -13,4 +12,9 @@ add-location:
   handler: src/handlers/offers/add-location.handler
   events:
     - http: post /v1/offers/{offerId}/locations/{locationId}
+
+link-brand-to-location:
+  handler: src/handlers/offers/link-brand-to-location.handler
+  events:
+    - http: post /v1/locations/brand/{brandId}
 

@@ -1,4 +1,4 @@
-describe('list offers', () => {
+describe('add location', () => {
     const mockOffersRepository = {
         get: id => null,
         put: offer => null

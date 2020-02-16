@@ -27,6 +27,21 @@ class LocationRepository {
         return response.Items || [];
     }
 
+    async getByBrand(id) {
+        const param = {
+            IndexName : "location_brand",
+            KeyConditionExpression: "brandId = :v_brand",
+            ExpressionAttributeValues: {
+                ":v_brand": id
+            }
+        };
+
+        const params = LocationRepository._createParamObject(param);
+        const response = await this._documentClient.query(params).promise();
+
+        return response.Items;
+    }
+
     /**
      * Gets a location by id
      * @param {string} id The location id

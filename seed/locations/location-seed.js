@@ -12,7 +12,7 @@ class LocationSeeder {
     }
 
     async hasTable() {
-        const tables = await this.dynamodb.listTables({ Limit: 5 }).promise();
+        const tables = await this.dynamodb.listTables({Limit: 5}).promise();
 
         return tables.TableNames && tables.TableNames.indexOf(this._tablename) >= 0;
     }
@@ -30,6 +30,27 @@ class LocationSeeder {
                 {
                     AttributeName: "id",
                     AttributeType: "S"
+                }, {
+                    AttributeName: "brandId",
+                    AttributeType: "S"
+                }
+            ],
+            GlobalSecondaryIndexes: [
+                {
+                    IndexName: 'location_brand',
+                    KeySchema: [
+                        {
+                            AttributeName: 'brandId',
+                            KeyType: 'HASH',
+                        }
+                    ],
+                    Projection: {
+                        ProjectionType: 'ALL'
+                    },
+                    ProvisionedThroughput: {
+                        ReadCapacityUnits: 1,
+                        WriteCapacityUnits: 1
+                    }
                 }
             ],
             ProvisionedThroughput: {       // Only specified if using provisioned mode
@@ -44,7 +65,7 @@ class LocationSeeder {
     }
 
     async deleteTable() {
-        const result = await this.dynamodb.deleteTable({ TableName: this._tablename }).promise();
+        const result = await this.dynamodb.deleteTable({TableName: this._tablename}).promise();
 
         return !!result.$response.err
     }
