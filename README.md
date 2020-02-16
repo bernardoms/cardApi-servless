@@ -17,12 +17,12 @@ Open a terminal at the the folder where you extracted the jar file (Setup sectio
 Run: java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb to start it on the default port: 8000.
 Open a browser at: http://localhost:8000/shell to interact with DynamoDB through the interactive shell.
 
-##DynamoDB Container
+## DynamoDB Container
 
 Run docker-compose up -d localstack
 If you already run the docker-compose.yml file and didn't teardown the container, start it again with, docker-compose start.
 Lambda Functions
 
-##Scripts
+## Scripts
 - Run npm run seed to seed some test data.
 - Run npm start to start the functions locally.
