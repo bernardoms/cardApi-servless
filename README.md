@@ -13,7 +13,7 @@ AWS_SECRET_ACCESS_KEY='fake-secret-key'
 ## DynamoDB JAR
 DynamoDB Local
 
-Open a terminal at the the folder where you extracted the jar file (Setup section).
+Open a terminal at the the folder where you extracted the jar file.
 Run: java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb to start it on the default port: 8000.
 Open a browser at: http://localhost:8000/shell to interact with DynamoDB through the interactive shell.
 
